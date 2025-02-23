@@ -3,52 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Datos de Google Sheets</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
     <p id="contenido"></p>
     <table id="tabla" border="1">
-        <thead><tr><th>Columna 1</th><th>Columna 2</th></tr></thead>
-        <tbody></tbody>
+        <p id="dormir"></p>
+        <p id="productivo"></p>
+        <p id="ocio"></p>
+        <p id="ejercicio"></p>
+        <p id="clariente"></p>
+        <p id="piano"></p>
+        <p id="leer"></p>
+        <p id="social"></p>
+        <p id="transporte"></p>
+        <p id="comer"></p>
+        <p id="clase"></p>
+        <p id="nada"></p>
     </table>
 
     <script>
         const sheetId = "2PACX-1vQKJ2XLNedZMDujiSaVtSv40li98ULwmRk-QeEeHkb7tGtFp_eMfcl9j5eAEJhwpwtSWIL1fKneXgsx"; // Reemplaza con el ID real de tu hoja
         const sheetURL = `https://script.google.com/macros/s/AKfycbwuNWfNBNMqE2G9oHYVJx3jJBDQOOQaDKqXz6zomWErKs8wklW3or52aDJNkRZrj6HVZg/exec`;
-        
-        function generarTabla(data) {
-            const tabla = document.getElementById("tabla");
-            const thead = tabla.querySelector("thead tr");
-            const tbody = tabla.querySelector("tbody");
-
-            // Limpiar la tabla
-            thead.innerHTML = "";
-            tbody.innerHTML = "";
-
-            if (data.length === 0) return;
-
-            // Obtener las claves (nombres de columnas) de la primera fila
-            const columnas = new Set();
-            debugger;
-            data.forEach(obj => Object.keys(obj).forEach(col => columnas.add(col)));
-
-            // Crear encabezados de la tabla
-            columnas.forEach(col => {
-                let th = document.createElement("th");
-                th.textContent = col;
-                thead.appendChild(th);
-            });
-
-            // Llenar la tabla con los datos
-            data.forEach(obj => {
-                let fila = document.createElement("tr");
-                columnas.forEach(col => {
-                    let celda = document.createElement("td");
-                    celda.textContent = obj[col] || ""; // Si no existe, poner vacío
-                    fila.appendChild(celda);
-                });
-                tbody.appendChild(fila);
-            });
-        }
 
         async function fetchSheetData() {
             try {
@@ -56,29 +32,23 @@
                 const data = await response.json();
                 
                 const jsonString = JSON.stringify(data, null, 2);
-                document.getElementById("contenido").innerHTML = "<pre>" + jsonString + "</pre>";
-
+                //document.getElementById("contenido").innerHTML = "<pre>" + jsonString + "</pre>";
+                
+                var i = 1;
+                document.getElementById("dormir").innerHTML = "dormir: \t\t" + data[i].dorV;
+                document.getElementById("productivo").innerHTML = "productivo: " + data[i].proV;
+                document.getElementById("ocio").innerHTML = "ocio: " + data[i].ociV;
+                document.getElementById("ejercicio").innerHTML = "ejercicio: " + data[i].ejeV;
+                document.getElementById("clariente").innerHTML = "clariente: " + data[i].clarV;
+                document.getElementById("piano").innerHTML = "piano: " + data[i].piaV;
+                document.getElementById("leer").innerHTML = "leer: " + data[i].leeV;
+                document.getElementById("social").innerHTML = "social: " + data[i].socV;
+                document.getElementById("transporte").innerHTML = "transporte: " + data[i].traV;
+                document.getElementById("comer").innerHTML = "comer: " + data[i].comV;
+                document.getElementById("clase").innerHTML = "clase: " + data[i].clasV;
+                document.getElementById("nada").innerHTML = "nada: " + data[i].nadV;
                 // debugger;
                 return data;
-                // Extraer datos de la respuesta JSON
-                const entries = data.feed.entry;
-                const rows = [];
-                let rowIndex = 0;
-                let currentRow = [];
-
-                entries.forEach((entry, index) => {
-                    const cell = entry.gs$cell;
-                    if (cell.row !== rowIndex) {
-                        if (currentRow.length > 0) rows.push(currentRow);
-                        currentRow = [];
-                        rowIndex = cell.row;
-                    }
-                    currentRow.push(cell.inputValue);
-                });
-
-                if (currentRow.length > 0) rows.push(currentRow);
-
-                console.log(rows); // Muestra los datos en formato array
             } catch (error) {
                 console.error("Error al obtener los datos:", error);
             }
