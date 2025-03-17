@@ -8,18 +8,63 @@
 <body>
     <p id="contenido"></p>
     <table id="tabla" border="1">
-        <p id="dormir"></p>
-        <p id="productivo"></p>
-        <p id="ocio"></p>
-        <p id="ejercicio"></p>
-        <p id="clariente"></p>
-        <p id="piano"></p>
-        <p id="leer"></p>
-        <p id="social"></p>
-        <p id="transporte"></p>
-        <p id="comer"></p>
-        <p id="clase"></p>
-        <p id="nada"></p>
+        <span
+            class="text-xs font-medium text-center bg-blue-200 text-blue-800 me-2 px-2.5 py-0.5 rounded 
+            dark:bg-blue-900 dark:text-blue-300"
+        >
+            Píldora de prueba
+        </span>
+        
+        <span 
+            id="badge-dismiss-dark" 
+            class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium 
+            text-gray-800 bg-gray-100 rounded-sm dark:bg-gray-700 dark:text-gray-300"
+        >
+            Dark
+            <button type="button" class="inline-flex items-center p-1 ms-2 text-sm text-gray-400 
+                bg-transparent rounded-xs hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 
+                dark:hover:text-gray-300" data-dismiss-target="#badge-dismiss-dark" aria-label="Remove"
+            >
+            <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" 
+                viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+            <span class="sr-only">Remove badge</span>
+            </button>
+            </span>
+        <p class="text-3xl font-bold text-center bg-blue-200
+         ">Datos de Google Sheets</p>
+        <div>
+            <p class="text-2xl font-bold text-center bg-blue-100">Esperado semana actual</p>
+            <p class="bg-blue-100" id="dormirX"></p>
+            <p id="productivoX"></p>
+            <p id="ocioX"></p>
+            <p id="ejercicioX"></p>
+            <p id="clarienteX"></p>
+            <p id="pianoX"></p>
+            <p id="leerX"></p>
+            <p id="socialX"></p>
+            <p id="transporteX"></p>
+            <p id="comerX"></p>
+            <p id="claseX"></p>
+            <p id="nadaX"></p>
+        </div>
+        <div>
+            <p class="text-2xl font-bold text-center bg-blue-100">Real semana pasada</p>
+            <p class="bg-blue-100" id="dormirR"></p>
+            <p id="productivoR"></p>
+            <p id="ocioR"></p>
+            <p id="ejercicioR"></p>
+            <p id="clarienteR"></p>
+            <p id="pianoR"></p>
+            <p id="leerR"></p>
+            <p id="socialR"></p>
+            <p id="transporteR"></p>
+            <p id="comerR"></p>
+            <p id="claseR"></p>
+            <p id="nadaR"></p>
+        </div>
     </table>
 
     <script>
@@ -32,26 +77,48 @@
                 const data = await response.json();
                 
                 const jsonString = JSON.stringify(data, null, 2);
-                //document.getElementById("contenido").innerHTML = "<pre>" + jsonString + "</pre>";
                 
-                var i = 1;
-                document.getElementById("dormir").innerHTML = "dormir: \t\t" + data[i].dorV;
-                document.getElementById("productivo").innerHTML = "productivo: " + data[i].proV;
-                document.getElementById("ocio").innerHTML = "ocio: " + data[i].ociV;
-                document.getElementById("ejercicio").innerHTML = "ejercicio: " + data[i].ejeV;
-                document.getElementById("clariente").innerHTML = "clariente: " + data[i].clarV;
-                document.getElementById("piano").innerHTML = "piano: " + data[i].piaV;
-                document.getElementById("leer").innerHTML = "leer: " + data[i].leeV;
-                document.getElementById("social").innerHTML = "social: " + data[i].socV;
-                document.getElementById("transporte").innerHTML = "transporte: " + data[i].traV;
-                document.getElementById("comer").innerHTML = "comer: " + data[i].comV;
-                document.getElementById("clase").innerHTML = "clase: " + data[i].clasV;
-                document.getElementById("nada").innerHTML = "nada: " + data[i].nadV;
-                // debugger;
+                debugger;
+                const i = getWeekIndex();
+                document.getElementById("dormirX").innerHTML = "dormir: \t\t" + data[i].dorPV.toFixed(2);
+                document.getElementById("productivoX").innerHTML = "productivo: " + data[i].proPV.toFixed(2);
+                document.getElementById("ocioX").innerHTML = "ocio: " + data[i].ociPV.toFixed(2);
+                document.getElementById("ejercicioX").innerHTML = "ejercicio: " + data[i].ejePV.toFixed(2);
+                document.getElementById("clarienteX").innerHTML = "clariente: " + data[i].clarPV.toFixed(2);
+                document.getElementById("pianoX").innerHTML = "piano: " + data[i].piaPV.toFixed(2);
+                document.getElementById("leerX").innerHTML = "leer: " + data[i].leePV.toFixed(2);
+                document.getElementById("socialX").innerHTML = "social: " + data[i].socPV.toFixed(2);
+                document.getElementById("transporteX").innerHTML = "transporte: " + data[i].traPV.toFixed(2);
+                document.getElementById("comerX").innerHTML = "comer: " + data[i].comPV.toFixed(2);
+                document.getElementById("claseX").innerHTML = "clase: " + data[i].clasPV.toFixed(2);
+                document.getElementById("nadaX").innerHTML = "nada: " + data[i].nadPV.toFixed(2);
+
+                document.getElementById("dormirR").innerHTML = "dormir: \t\t" + data[i].dorV.toFixed(2);
+                document.getElementById("productivoR").innerHTML = "productivo: " + data[i].proV.toFixed(2);
+                document.getElementById("ocioR").innerHTML = "ocio: " + data[i].ociV.toFixed(2);
+                document.getElementById("ejercicioR").innerHTML = "ejercicio: " + data[i].ejeV.toFixed(2);
+                document.getElementById("clarienteR").innerHTML = "clariente: " + data[i].clarV.toFixed(2);
+                document.getElementById("pianoR").innerHTML = "piano: " + data[i].piaV.toFixed(2);
+                document.getElementById("leerR").innerHTML = "leer: " + data[i].leeV.toFixed(2);
+                document.getElementById("socialR").innerHTML = "social: " + data[i].socV.toFixed(2);
+                document.getElementById("transporteR").innerHTML = "transporte: " + data[i].traV.toFixed(2);
+                document.getElementById("comerR").innerHTML = "comer: " + data[i].comV.toFixed(2);
+                document.getElementById("claseR").innerHTML = "clase: " + data[i].clasV.toFixed(2);
+                document.getElementById("nadaR").innerHTML = "nada: " + data[i].nadV.toFixed(2);
+
                 return data;
             } catch (error) {
                 console.error("Error al obtener los datos:", error);
             }
+        }
+
+        function getWeekIndex() {
+            const initDay = new Date("2025-02-08");
+            const today = new Date();
+            const diff = today - initDay;
+            const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const diffWeeks = Math.floor(diffDays / 7);
+            return diffWeeks;
         }
 
         var docData = fetchSheetData();
