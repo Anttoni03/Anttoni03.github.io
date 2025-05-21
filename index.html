@@ -1,65 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Datos de Google Sheets</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Botones de Audio</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 38px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    .correcto {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .incorrecto {
+      background-color: #F44336;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <p id="contenido"></p>
-    <table id="tabla" border="1">
-        <p class="text-2xl font-bold text-center bg-blue-200
-         ">Datos de Google Sheets</p>
-        <p class="bg-blue-100" id="dormir"></p>
-        <p id="productivo"></p>
-        <p id="ocio"></p>
-        <p id="ejercicio"></p>
-        <p id="clariente"></p>
-        <p id="piano"></p>
-        <p id="leer"></p>
-        <p id="social"></p>
-        <p id="transporte"></p>
-        <p id="comer"></p>
-        <p id="clase"></p>
-        <p id="nada"></p>
-    </table>
+  <div class="container">
+    <button class="correcto" onclick="playAudio('feliz')">Correcto</button>
+    <button class="incorrecto" onclick="playAudio('triste')">Incorrecto</button>
+  </div>
 
-    <script>
-        const sheetId = "2PACX-1vQKJ2XLNedZMDujiSaVtSv40li98ULwmRk-QeEeHkb7tGtFp_eMfcl9j5eAEJhwpwtSWIL1fKneXgsx"; // Reemplaza con el ID real de tu hoja
-        const sheetURL = `https://script.google.com/macros/s/AKfycbwuNWfNBNMqE2G9oHYVJx3jJBDQOOQaDKqXz6zomWErKs8wklW3or52aDJNkRZrj6HVZg/exec`;
+  <audio id="feliz" src="feliz.mp3"></audio>
+  <audio id="triste" src="triste.mp3"></audio>
 
-        async function fetchSheetData() {
-            try {
-                const response = await fetch(sheetURL);
-                const data = await response.json();
-                
-                const jsonString = JSON.stringify(data, null, 2);
-                //document.getElementById("contenido").innerHTML = "<pre>" + jsonString + "</pre>";
-                
-                var i = 1;
-                document.getElementById("dormir").innerHTML = "dormir: \t\t" + data[i].dorV;
-                document.getElementById("productivo").innerHTML = "productivo: " + data[i].proV;
-                document.getElementById("ocio").innerHTML = "ocio: " + data[i].ociV;
-                document.getElementById("ejercicio").innerHTML = "ejercicio: " + data[i].ejeV;
-                document.getElementById("clariente").innerHTML = "clariente: " + data[i].clarV;
-                document.getElementById("piano").innerHTML = "piano: " + data[i].piaV;
-                document.getElementById("leer").innerHTML = "leer: " + data[i].leeV;
-                document.getElementById("social").innerHTML = "social: " + data[i].socV;
-                document.getElementById("transporte").innerHTML = "transporte: " + data[i].traV;
-                document.getElementById("comer").innerHTML = "comer: " + data[i].comV;
-                document.getElementById("clase").innerHTML = "clase: " + data[i].clasV;
-                document.getElementById("nada").innerHTML = "nada: " + data[i].nadV;
-                // debugger;
-                return data;
-            } catch (error) {
-                console.error("Error al obtener los datos:", error);
-            }
-        }
-
-        var docData = fetchSheetData();
-        // debugger;
-        // generarTabla(docData);
-        //setInterval(fetchSheetData, 30000); // Actualizar cada 30 segundos
-    </script>
+  <script>
+    function playAudio(id) {
+      const audio = document.getElementById(id);
+      audio.currentTime = 0; // Reinicia si ya está sonando
+      audio.play();
+    }
+  </script>
 </body>
 </html>
