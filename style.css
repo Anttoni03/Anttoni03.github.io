@@ -1,0 +1,130 @@
+html, body {
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.text-node { background-clip: text !important; -webkit-background-clip: text !important; }
+
+/* Board */
+.main-board {
+    margin-top: 10px;
+    width: 96%;
+    background: #b8cdffFF;
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    align-items: start;
+    align-content: start;
+    justify-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px 6px 8px 6px;
+    flex-grow: 1;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Board */
+.pill-board {
+    /*position: relative;*/
+    width: 190px;
+    height: 40px;
+    background: #FFFFFFFF;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/* Board */
+.pill-timers-board {
+    position: relative;
+    width: 52px;
+    height: 100%;
+    background: #9a9a9aFF;
+    border-radius: 0px 0px 0px 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+/* Board */
+.pill-timers-down-board {
+    position: relative;
+    width: 100%;
+    background: #d8d8d8FF;
+    border-radius: 0px 0px 0px 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+    align-self: center;
+}
+
+/* Board */
+.pill-timers-up-board {
+    position: relative;
+    width: 100%;
+    background: #FFFFFFFF;
+    border-radius: 0px 0px 0px 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+    align-self: center;
+}
+
+/* Board */
+.pill-text-board {
+    position: relative;
+    height: 100%;
+    background: #d8d8d8FF;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    padding: 2px 0px 2px 0px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.pill-text {
+    font-size: 1.3em;
+}
+.pill-timers-text {
+    font-size: .9em;
+}

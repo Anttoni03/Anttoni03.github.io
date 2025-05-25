@@ -1,55 +1,249 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Botones de Audio</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f0f0f0;
-    }
-    .container {
-      display: flex;
-      gap: 20px;
-    }
-    button {
-      padding: 15px 30px;
-      font-size: 28px;
-      cursor: pointer;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    }
-    .correcto {
-      background-color: #4CAF50;
-      color: white;
-    }
-    .incorrecto {
-      background-color: #F44336;
-      color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Datos de Google Sheets</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <button class="correcto" onclick="playAudio('feliz')">Correcte</button>
-    <button class="incorrecto" onclick="playAudio('triste')">Incorrecte</button>
-  </div>
+    
+    <!-- text: Frau LifeStats -->
+    <div class="bg-blue-100 text-center">
+        <p class="
+            text-black font-semibold
+            normal-case                 
+            text-4xl"
+        >
+            Frau LifeStats
+        </p>
+    </div>
 
-  <audio id="feliz" src="feliz.mp3"></audio>
-  <audio id="triste" src="triste.mp3"></audio>
+    <table id="tabla" border="1">
 
-  <script>
-    function playAudio(id) {
-      const audio = document.getElementById(id);
-      audio.currentTime = 0; // Reinicia si ya está sonando
-      audio.play();
-    }
-  </script>
+        <!-- ELEMENTOS DE PRUEBA PARA ELIMINAR
+        <span
+            class="text-xs font-medium text-center bg-blue-200 text-blue-800 me-2 px-2.5 py-0.5 rounded 
+            dark:bg-blue-900 dark:text-blue-300"
+        >
+            Píldora de prueba
+        </span>
+        
+        <span 
+            id="badge-dismiss-dark" 
+            class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium 
+            text-gray-800 bg-gray-100 rounded-sm dark:bg-gray-700 dark:text-gray-300"
+        >
+            Dark
+            <button type="button" class="inline-flex items-center p-1 ms-2 text-sm text-gray-400 
+                bg-transparent rounded-xs hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 
+                dark:hover:text-gray-300" data-dismiss-target="#badge-dismiss-dark" aria-label="Remove"
+            >
+            <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" 
+                viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+            <span class="sr-only">Remove badge</span>
+            </button>
+        </span>
+        -->
+        <!-- ANTIGUO CÓDIGO PARA MOSTRAR DATOS DE GOOGLE SHEETS
+        <p class="text-3xl font-bold text-center bg-blue-200
+         ">Datos de Google Sheets</p>
+        <div>
+            <p class="text-2xl font-bold text-center bg-blue-100">Esperado semana actual</p>
+            <p class="bg-blue-100" id="dormirX"></p>
+            <p id="productivoX"></p>
+            <p id="ocioX"></p>
+            <p id="ejercicioX"></p>
+            <p id="clarienteX"></p>
+            <p id="pianoX"></p>
+            <p id="leerX"></p>
+            <p id="socialX"></p>
+            <p id="transporteX"></p>
+            <p id="comerX"></p>
+            <p id="claseX"></p>
+            <p id="nadaX"></p>
+        </div>
+        <div>
+            <p class="text-2xl font-bold text-center bg-blue-100">Real semana pasada</p>
+            <p class="bg-blue-100" id="dormirR"></p>
+            <p id="productivoR"></p>
+            <p id="ocioR"></p>
+            <p id="ejercicioR"></p>
+            <p id="clarienteR"></p>
+            <p id="pianoR"></p>
+            <p id="leerR"></p>
+            <p id="socialR"></p>
+            <p id="transporteR"></p>
+            <p id="comerR"></p>
+            <p id="claseR"></p>
+            <p id="nadaR"></p>
+        </div>
+        -->
+    </table>
+
+    <!-- frame: Board -->
+<div class="frame main-board">
+    <!-- Dormir -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Dormir</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="dormirR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="dormirX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Productivo -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Productivo</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="productivoR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="productivoX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Ocio -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Ocio</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="ocioR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="ocioX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Ejercicio -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Ejercicio</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="ejercicioR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="ejercicioX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Clarinete -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Clarinete</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="clarineteR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="clarineteX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Piano -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Piano</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="pianoR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="pianoX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Leer -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Leer</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="leerR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="leerX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Social -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Social</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="socialR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="socialX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Transporte -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Transporte</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="transporteR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="transporteX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Comer -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Comer</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="comerR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="comerX">999:99</p>
+            </div>
+        </div>
+    </div>
+    <!-- Nada -->
+    <div class="frame pill-board">
+        <div class="frame pill-text-board">
+            <p class="pill-text" dir="ltr">Nada</p>
+        </div>
+        <div class="frame pill-timers-board">
+            <div class="frame pill-timers-down-board">
+                <p class="pill-timers-text" dir="ltr" id="nadaR">111:11</p>
+            </div>
+            <div class="frame pill-timers-up-board">
+                <p class="pill-timers-text" dir="ltr" id="nadaX">999:99</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
