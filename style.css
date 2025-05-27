@@ -1,8 +1,41 @@
+:root {
+  --color-dormir: #ffb114;
+  --color-comer: #ffcf1d;
+  --color-ejercicio: #acc34a;
+  --color-clarinete: #f53639;
+  --color-piano: #e91eb0;
+  --color-clases: #9c27b0;
+  --color-productivo: #673ab7;
+  --color-social: #036ef4;
+  --color-leer: #50afed;
+  --color-ocio: #009689;
+  --color-transporte: #785248;
+
+  --color-dormir2: #fcd589;
+  --color-comer2: #ffe895;
+  --color-ejercicio2: #d5e496;
+  --color-clarinete2: #f09193;
+  --color-piano2: #ec89d0;
+  --color-clases2: #ae7ab8;
+  --color-productivo2: #9981c4;
+  --color-social2: #7db4f8;
+  --color-leer2: #99ccee;
+  --color-ocio2: #70afaa;
+  --color-transporte2: #a7918c;
+}
+
 html, body {
     margin: 0;
     min-height: 100%;
     min-width: 100%;
     padding: 0;
+}
+
+#loader {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 2rem;
+    color: #555;
 }
 
 body {
@@ -21,8 +54,9 @@ body {
 
 /* Board */
 .main-board {
-    margin-top: 10px;
-    width: 96%;
+    margin-top: 3%;
+    width: 92%;
+    max-height: 31rem;
     background: #b8cdffFF;
     border-radius: 10px;
     overflow: hidden;
@@ -32,17 +66,17 @@ body {
     justify-items: center;
     justify-content: center;
     gap: 16px;
-    padding: 8px 6px 8px 6px;
+    padding: 10px 6px 8px 6px;
     flex-grow: 1;
     grid-template-rows: auto auto auto auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 /* Board */
 .pill-board {
     /*position: relative;*/
-    width: 190px;
-    height: 40px;
+    width: 75%;
+    height: 65px;
     background: #FFFFFFFF;
     border-radius: 4px;
     overflow: hidden;
@@ -57,7 +91,7 @@ body {
 /* Board */
 .pill-timers-board {
     position: relative;
-    width: 52px;
+    width: 30%;
     height: 100%;
     background: #9a9a9aFF;
     border-radius: 0px 0px 0px 0px;
@@ -123,8 +157,131 @@ body {
 }
 
 .pill-text {
-    font-size: 1.3em;
+    font-size: 1.8em;
 }
 .pill-timers-text {
-    font-size: .9em;
+    font-size: 1.2em;
 }
+
+
+@media screen and (orientation: landscape) {
+    .main-board {
+        margin-top: 3%;
+        width: 92%;
+        max-height: 20rem;
+        background: #b8cdffFF;
+        border-radius: 10px;
+        overflow: hidden;
+        display: grid;
+        align-items: start;
+        align-content: start;
+        justify-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 10px 6px 8px 6px;
+        flex-grow: 1;
+        grid-template-rows: auto auto auto auto;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pill-board {
+        /*position: relative;*/
+        width: 75%;
+        height: 3vw;
+        background: #FFFFFFFF;
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        align-content: stretch;
+        justify-content: space-evenly;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .pill-text {
+        font-size: 1.5em;
+    }
+    .pill-timers-text {
+        font-size: .9em;
+    }
+}
+
+.invisible {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dormir {
+    background: var(--color-dormir);
+}
+.comer {
+    background: var(--color-comer);
+}
+.ejercicio {
+    background: var(--color-ejercicio);
+}
+.clarinete {
+    background: var(--color-clarinete);
+}
+.piano {
+    background: var(--color-piano);
+}
+.clases {
+    background: var(--color-clases);
+}
+.productivo {
+    background: var(--color-productivo);
+}
+.social {
+    background: var(--color-social);
+}
+.leer {
+    background: var(--color-leer);
+}
+.ocio {
+    background: var(--color-ocio);
+}
+.transporte {
+    background: var(--color-transporte);
+}
+
+.dormir2 {
+    background: var(--color-dormir2);
+}
+.comer2 {
+    background: var(--color-comer2);
+}
+.ejercicio2 {
+    background: var(--color-ejercicio2);
+}
+.clarinete2 {
+    background: var(--color-clarinete2);
+}
+.piano2 {
+    background: var(--color-piano2);
+}
+.clases2 {
+    background: var(--color-clases2);
+}
+.productivo2 {
+    background: var(--color-productivo2);
+}
+.social2 {
+    background: var(--color-social2);
+}
+.leer2 {
+    background: var(--color-leer2);
+}
+.ocio2 {
+    background: var(--color-ocio2);
+}
+.transporte2 {
+    background: var(--color-transporte2);
+}
+

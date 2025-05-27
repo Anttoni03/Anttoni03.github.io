@@ -8,88 +8,33 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+
+    
     
     <!-- text: Frau LifeStats -->
-    <div class="bg-blue-100 text-center">
-        <p class="
-            text-black font-semibold
-            normal-case                 
-            text-4xl"
+    <div class="flex justify-between items-center bg-blue-100  w-full">
+        <p class="flex-1 text-center
+        text-black font-semibold normal-case                 
+        text-4xl md:text-4xl lg:text-4xl
+        p-4 md:p-4 lg:p-4"
         >
-            Frau LifeStats
-        </p>
-    </div>
+        FRAU LifeStats
+    </p>
+    
+    <div class="text-right mr-8
+    text-2xl md:text-2xl lg:text-2xl invisible" id="indicador">
+    <p id="indicador-text">Hola!</p>
+</div>
+</div>
 
-    <table id="tabla" border="1">
+<!-- Loader visible al inicio -->
+<div id="loader" class="h-full">Cargando...</div>
 
-        <!-- ELEMENTOS DE PRUEBA PARA ELIMINAR
-        <span
-            class="text-xs font-medium text-center bg-blue-200 text-blue-800 me-2 px-2.5 py-0.5 rounded 
-            dark:bg-blue-900 dark:text-blue-300"
-        >
-            Píldora de prueba
-        </span>
-        
-        <span 
-            id="badge-dismiss-dark" 
-            class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium 
-            text-gray-800 bg-gray-100 rounded-sm dark:bg-gray-700 dark:text-gray-300"
-        >
-            Dark
-            <button type="button" class="inline-flex items-center p-1 ms-2 text-sm text-gray-400 
-                bg-transparent rounded-xs hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 
-                dark:hover:text-gray-300" data-dismiss-target="#badge-dismiss-dark" aria-label="Remove"
-            >
-            <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" 
-                viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-            </svg>
-            <span class="sr-only">Remove badge</span>
-            </button>
-        </span>
-        -->
-        <!-- ANTIGUO CÓDIGO PARA MOSTRAR DATOS DE GOOGLE SHEETS
-        <p class="text-3xl font-bold text-center bg-blue-200
-         ">Datos de Google Sheets</p>
-        <div>
-            <p class="text-2xl font-bold text-center bg-blue-100">Esperado semana actual</p>
-            <p class="bg-blue-100" id="dormirX"></p>
-            <p id="productivoX"></p>
-            <p id="ocioX"></p>
-            <p id="ejercicioX"></p>
-            <p id="clarienteX"></p>
-            <p id="pianoX"></p>
-            <p id="leerX"></p>
-            <p id="socialX"></p>
-            <p id="transporteX"></p>
-            <p id="comerX"></p>
-            <p id="claseX"></p>
-            <p id="nadaX"></p>
-        </div>
-        <div>
-            <p class="text-2xl font-bold text-center bg-blue-100">Real semana pasada</p>
-            <p class="bg-blue-100" id="dormirR"></p>
-            <p id="productivoR"></p>
-            <p id="ocioR"></p>
-            <p id="ejercicioR"></p>
-            <p id="clarienteR"></p>
-            <p id="pianoR"></p>
-            <p id="leerR"></p>
-            <p id="socialR"></p>
-            <p id="transporteR"></p>
-            <p id="comerR"></p>
-            <p id="claseR"></p>
-            <p id="nadaR"></p>
-        </div>
-        -->
-    </table>
-
-    <!-- frame: Board -->
-<div class="frame main-board">
+<!-- frame: Board -->
+<div class="frame main-board invisible" id="board-principal">
     <!-- Dormir -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board dormir2">
             <p class="pill-text" dir="ltr">Dormir</p>
         </div>
         <div class="frame pill-timers-board">
@@ -103,7 +48,7 @@
     </div>
     <!-- Productivo -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board productivo2">
             <p class="pill-text" dir="ltr">Productivo</p>
         </div>
         <div class="frame pill-timers-board">
@@ -117,7 +62,7 @@
     </div>
     <!-- Ocio -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board ocio2">
             <p class="pill-text" dir="ltr">Ocio</p>
         </div>
         <div class="frame pill-timers-board">
@@ -131,7 +76,7 @@
     </div>
     <!-- Ejercicio -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board ejercicio2">
             <p class="pill-text" dir="ltr">Ejercicio</p>
         </div>
         <div class="frame pill-timers-board">
@@ -145,7 +90,7 @@
     </div>
     <!-- Clarinete -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board clarinete2">
             <p class="pill-text" dir="ltr">Clarinete</p>
         </div>
         <div class="frame pill-timers-board">
@@ -159,7 +104,7 @@
     </div>
     <!-- Piano -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board piano2">
             <p class="pill-text" dir="ltr">Piano</p>
         </div>
         <div class="frame pill-timers-board">
@@ -173,7 +118,7 @@
     </div>
     <!-- Leer -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board leer2">
             <p class="pill-text" dir="ltr">Leer</p>
         </div>
         <div class="frame pill-timers-board">
@@ -187,7 +132,7 @@
     </div>
     <!-- Social -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board social2">
             <p class="pill-text" dir="ltr">Social</p>
         </div>
         <div class="frame pill-timers-board">
@@ -201,7 +146,7 @@
     </div>
     <!-- Transporte -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board transporte2">
             <p class="pill-text" dir="ltr">Transporte</p>
         </div>
         <div class="frame pill-timers-board">
@@ -215,7 +160,7 @@
     </div>
     <!-- Comer -->
     <div class="frame pill-board">
-        <div class="frame pill-text-board">
+        <div class="frame pill-text-board comer2">
             <p class="pill-text" dir="ltr">Comer</p>
         </div>
         <div class="frame pill-timers-board">
