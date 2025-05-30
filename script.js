@@ -3,15 +3,14 @@ const sheetURL = `https://script.google.com/macros/s/AKfycbyXydFSnz1beZsMAHOsnvK
 
 async function fetchSheetData() {
 
+    const hideShowItems = ["board-principal"];
     const loader = document.getElementById("loader");
-    const indicador = document.getElementById("indicador");
-    const contenido = document.getElementById("board-principal");
 
     try {
+
+        //Cargar datos de la hoja de cálculo
         const response = await fetch(sheetURL);
         const data = await response.json();
-        
-        const jsonString = JSON.stringify(data, null, 2);
 
         getWeekAdvancement();
         const advancement = getWeekAdvancement() / 7;
@@ -43,28 +42,12 @@ async function fetchSheetData() {
         document.getElementById("comerR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].comPV*advancement), "h:m");
         //document.getElementById("claseX").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].clasPV*advancement), "h m");
         document.getElementById("nadaR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].nadPV*advancement), "h:m");
-        
-        /*
-        document.getElementById("dormirR").innerHTML = "" + data[i-1].dorV.toFixed(2);
-        document.getElementById("productivoR").innerHTML = "" + data[i-1].proV.toFixed(2);
-        document.getElementById("ocioR").innerHTML = "" + data[i-1].ociV.toFixed(2);
-        document.getElementById("ejercicioR").innerHTML = "" + data[i-1].ejeV.toFixed(2);
-        document.getElementById("clarineteR").innerHTML = "" + data[i-1].clarV.toFixed(2);
-        document.getElementById("pianoR").innerHTML = "" + data[i-1].piaV.toFixed(2);
-        document.getElementById("leerR").innerHTML = "" + data[i-1].leeV.toFixed(2);
-        document.getElementById("socialR").innerHTML = "" + data[i-1].socV.toFixed(2);
-        document.getElementById("transporteR").innerHTML = "" + data[i-1].traV.toFixed(2);
-        document.getElementById("comerR").innerHTML = "" + data[i-1].comV.toFixed(2);
-        //document.getElementById("claseR").innerHTML = "" + data[i-1].clasV.toFixed(2);
-        document.getElementById("nadaR").innerHTML = "" + data[i-1].nadV.toFixed(2);
-        */
        
-       loader.style.display = "none";
-       contenido.classList.remove("invisible");
-       contenido.classList.add("visible");
-       
-       indicador.classList.remove("invisible");
-       indicador.classList.add("visible");
+        loadEvents(data[i].COMENTARIOS);
+        loadTasks(data[i].TAREAS);
+
+        // Actualizar los elementos al acabar de cargar los datos
+       displayContent(loader, hideShowItems);
        
        return data;
     } catch (error) {
@@ -72,6 +55,65 @@ async function fetchSheetData() {
         console.error("Error al obtener los datos:", error);
     }
     
+}
+
+function loadEvents(events) {
+    if (events == "") return;
+    
+    var eventsNames = events.split(". ");
+    var total = ["evento1", "evento2", "evento3", "evento4", "evento5", "evento6", "evento7"];
+
+    for (let i = 0; i < eventsNames.length; i++) {
+        const eventElement = document.getElementById(total[i]);
+        var palabras = eventsNames[i].split(" ");
+        var day = 0;
+
+        if (palabras[palabras.length - 2] === "día") {
+            day = palabras[palabras.length - 1];
+            eventElement.innerHTML = `[Día ${day}] ${palabras.slice(0, -2).join(" ")}`;
+        } else {
+            eventElement.innerHTML = eventsNames[i];
+        }
+
+        eventElement.classList.display = "block";
+        eventElement.classList.remove("invisible2");
+        eventElement.classList.add("visible");
+    }
+}
+
+function loadTasks(events) {
+    if (events == "") return;
+
+    var tasksNames = events.split(". ");
+    var total = ["tarea1", "tarea2", "tarea3", "tarea4", "tarea5", "tarea6", "tarea7"];
+
+    for (let i = 0; i < tasksNames.length; i++) {
+        const taskElement = document.getElementById(total[i]);
+        var palabras = tasksNames[i].split(" ");
+        var day = 0;
+
+        if (palabras[palabras.length - 2] === "día") {
+            day = palabras[palabras.length - 1];
+            taskElement.innerHTML = `[Día ${day}] ${palabras.slice(0, -2).join(" ")}`;
+        } else {
+            taskElement.innerHTML = tasksNames[i];
+        }
+
+        taskElement.classList.display = "block";
+        taskElement.classList.remove("invisible2");
+        taskElement.classList.add("visible");
+    }
+}
+
+function displayContent(hide, show) {
+
+    hide.style.display = "none";
+
+    for (const name of show) {
+        const element = document.getElementById(name);
+        element.classList.remove("invisible");
+        element.classList.add("visible");
+    }
 }
 
 function getWeekIndex() {
@@ -84,8 +126,12 @@ function getWeekIndex() {
 }
 
 function getDurationFromMinutes(minutes, format) {
-    const hours = Math.floor(minutes / 60);
-    const remainingMinutes = minutes % 60;
+    const hoursNum = Math.floor(minutes / 60);
+    const remainingMinutesNum = minutes % 60;
+
+    const hours = hoursNum < 10 ? hoursNum.toString().padStart(2, '0') : hoursNum.toString();
+    const remainingMinutes = remainingMinutesNum < 10 ? remainingMinutesNum.toString().padStart(2, '0') : remainingMinutesNum.toString();
+
     if (format === "h m") {
         return `${hours}h ${remainingMinutes}m`;
     } else if (format === "horas minutos") {
@@ -113,11 +159,8 @@ function getWeekAdvancement() {
     return ((diaSemana + 1) % 7) + 1;
 }
 
+
+
+
+
 fetchSheetData();
-
-
-
-//var docData = fetchSheetData();
-// debugger;
-// generarTabla(docData);
-//setInterval(fetchSheetData, 30000); // Actualizar cada 30 segundos
