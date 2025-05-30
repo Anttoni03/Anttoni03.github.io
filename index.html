@@ -8,186 +8,203 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-
-    
     
     <!-- text: Frau LifeStats -->
     <div class="flex justify-between items-center bg-blue-100  w-full">
         <p class="flex-1 text-center
-        text-black font-semibold normal-case                 
-        text-4xl md:text-4xl lg:text-4xl
-        p-4 md:p-4 lg:p-4"
-        >
-        FRAU LifeStats
-    </p>
-    
-    <div class="text-right mr-8
-    text-2xl md:text-2xl lg:text-2xl invisible" id="indicador">
-    <p id="indicador-text">Hola!</p>
-</div>
-</div>
+            text-black font-semibold normal-case                 
+            text-4xl md:text-4xl lg:text-4xl
+            p-4 md:p-4 lg:p-4"
+        >FRAU LifeStats</p>
+        <div class="text-right mr-8
+            text-2xl md:text-2xl lg:text-2xl"
+        ><p id="indicador-text">Calculando...⏳</p>
+        </div>
+    </div>
 
-<!-- Loader visible al inicio -->
-<div id="loader" class="h-full">Cargando...</div>
+    <!-- Loader visible al inicio -->
+    <div id="loader" class="h-full">Cargando datos...⏳</div>
 
-<!-- frame: Board -->
-<div class="frame main-board invisible" id="board-principal">
-    <!-- Dormir -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board dormir2">
-            <p class="pill-text" dir="ltr">Dormir</p>
+    <!-- Tablero principal de datos -->
+    <div class="frame main-board " id="board-principal">
+        <!-- Dormir -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board dormir2">
+                <p class="pill-text" dir="ltr">Dormir</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="dormirR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="dormirX">999:99</p>
+                </div>
+            </div>
         </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="dormirR">111:11</p>
+        <!-- Productivo -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board productivo2">
+                <p class="pill-text" dir="ltr">Productivo</p>
             </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="dormirX">999:99</p>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="productivoR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="productivoX">999:99</p>
+                </div>
             </div>
+        </div>
+        <!-- Ocio -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board ocio2">
+                <p class="pill-text" dir="ltr">Ocio</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="ocioR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="ocioX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Ejercicio -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board ejercicio2">
+                <p class="pill-text" dir="ltr">Ejercicio</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="ejercicioR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="ejercicioX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Clarinete -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board clarinete2">
+                <p class="pill-text" dir="ltr">Clarinete</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="clarineteR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="clarineteX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Piano -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board piano2">
+                <p class="pill-text" dir="ltr">Piano</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="pianoR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="pianoX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Leer -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board leer2">
+                <p class="pill-text" dir="ltr">Leer</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="leerR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="leerX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Social -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board social2">
+                <p class="pill-text" dir="ltr">Social</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="socialR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="socialX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Transporte -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board transporte2">
+                <p class="pill-text" dir="ltr">Transporte</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="transporteR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="transporteX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Comer -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board comer2">
+                <p class="pill-text" dir="ltr">Comer</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="comerR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="comerX">999:99</p>
+                </div>
+            </div>
+        </div>
+        <!-- Nada -->
+        <div class="frame pill-board">
+            <div class="frame pill-text-board">
+                <p class="pill-text" dir="ltr">Nada</p>
+            </div>
+            <div class="frame pill-timers-board">
+                <div class="frame pill-timers-down-board">
+                    <p class="pill-timers-text" dir="ltr" id="nadaR">111:11</p>
+                </div>
+                <div class="frame pill-timers-up-board">
+                    <p class="pill-timers-text" dir="ltr" id="nadaX">999:99</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Tablero secundario de anuncios -->
+    <div class="frame second-board" id="board-secundario">
+        <div class="frame second-board-events">
+            <p class="event-item invisible2" id="evento1">NO HAY EVENTOS!</p>
+            <p class="event-item invisible2" id="evento2">default event</p>
+            <p class="event-item invisible2" id="evento3">default event</p>
+            <p class="event-item invisible2" id="evento4">hdefault event</p>
+            <p class="event-item invisible2" id="evento5">default event</p>
+            <p class="event-item invisible2" id="evento6">default event</p>
+            <p class="event-item invisible2" id="evento7">default event</p>
+        </div>
+        <div class="frame second-board-tasks">
+            <p class="task-item invisible2" id="tarea1">NO HAY TAREAS!</p>
+            <p class="task-item invisible2" id="tarea2">default task</p>
+            <p class="task-item invisible2" id="tarea3">default task</p>
+            <p class="task-item invisible2" id="tarea4">default task</p>
+            <p class="task-item invisible2" id="tarea5">default task</p>
+            <p class="task-item invisible2" id="tarea6">default task</p>
+            <p class="task-item invisible2" id="tarea7">default task</p>
         </div>
     </div>
-    <!-- Productivo -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board productivo2">
-            <p class="pill-text" dir="ltr">Productivo</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="productivoR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="productivoX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Ocio -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board ocio2">
-            <p class="pill-text" dir="ltr">Ocio</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="ocioR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="ocioX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Ejercicio -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board ejercicio2">
-            <p class="pill-text" dir="ltr">Ejercicio</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="ejercicioR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="ejercicioX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Clarinete -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board clarinete2">
-            <p class="pill-text" dir="ltr">Clarinete</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="clarineteR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="clarineteX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Piano -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board piano2">
-            <p class="pill-text" dir="ltr">Piano</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="pianoR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="pianoX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Leer -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board leer2">
-            <p class="pill-text" dir="ltr">Leer</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="leerR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="leerX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Social -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board social2">
-            <p class="pill-text" dir="ltr">Social</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="socialR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="socialX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Transporte -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board transporte2">
-            <p class="pill-text" dir="ltr">Transporte</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="transporteR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="transporteX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Comer -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board comer2">
-            <p class="pill-text" dir="ltr">Comer</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="comerR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="comerX">999:99</p>
-            </div>
-        </div>
-    </div>
-    <!-- Nada -->
-    <div class="frame pill-board">
-        <div class="frame pill-text-board">
-            <p class="pill-text" dir="ltr">Nada</p>
-        </div>
-        <div class="frame pill-timers-board">
-            <div class="frame pill-timers-down-board">
-                <p class="pill-timers-text" dir="ltr" id="nadaR">111:11</p>
-            </div>
-            <div class="frame pill-timers-up-board">
-                <p class="pill-timers-text" dir="ltr" id="nadaX">999:99</p>
-            </div>
-        </div>
-    </div>
-    
-</div>
 
     <script src="script.js"></script>
 </body>

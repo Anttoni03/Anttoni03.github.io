@@ -57,7 +57,7 @@ body {
     margin-top: 3%;
     width: 92%;
     max-height: 31rem;
-    background: #b8cdffFF;
+    background: #dbeafe;
     border-radius: 10px;
     overflow: hidden;
     display: grid;
@@ -65,17 +65,104 @@ body {
     align-content: start;
     justify-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 15px 5px;
     padding: 10px 6px 8px 6px;
     flex-grow: 1;
     grid-template-rows: auto auto auto auto;
     grid-template-columns: 1fr 1fr;
 }
 
+.second-board {
+    margin-top: 3%;
+    width: 100%;
+    max-height: 31rem;
+    border-radius: 0px;
+    overflow: hidden;
+    display: grid;
+    align-items: start;
+    align-content: start;
+    justify-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 15px 8px 15px;
+    flex-grow: 1;
+    grid-template-columns: 1fr 1fr;
+}
+
+.second-board-events {
+    position: relative;
+    width: 100%;
+    
+    padding: 10px 0px 10px 0px;
+    background: #dbeafe;
+    border-radius: 0px 0px 0px 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: start;
+    gap: 10px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.second-board-tasks {
+    position: relative;
+    width: 100%;
+    
+    padding: 10px 0px 10px 0px;
+    background: #dbeafe;
+    border-radius: 0px 0px 0px 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: start;
+    gap: 10px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.event-item {
+    position: relative;
+    width: 96%;
+    height: 4.5rem;
+    font-size: 1.3rem;;
+    border-radius: 14px;
+    padding: 0% 5%;
+    background: #ffbcbc;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.task-item {
+    position: relative;
+    width: 96%;
+    height: 4.5rem;
+    font-size: 1.3rem;;
+    border-radius: 14px;
+    padding: 0% 5%;
+    background: #94e498;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
 /* Board */
 .pill-board {
     /*position: relative;*/
-    width: 75%;
+    width: 95%;
     height: 65px;
     background: #FFFFFFFF;
     border-radius: 4px;
@@ -177,7 +264,7 @@ body {
         align-content: start;
         justify-items: center;
         justify-content: center;
-        gap: 16px;
+        gap: 15px 5px;
         padding: 10px 6px 8px 6px;
         flex-grow: 1;
         grid-template-rows: auto auto auto auto;
@@ -186,7 +273,7 @@ body {
 
     .pill-board {
         /*position: relative;*/
-        width: 75%;
+        width: 95%;
         height: 3vw;
         background: #FFFFFFFF;
         border-radius: 4px;
@@ -212,6 +299,11 @@ body {
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+
+.invisible2 {
+    display: none;
+}
+
 .visible {
   opacity: 1;
   pointer-events: auto;
