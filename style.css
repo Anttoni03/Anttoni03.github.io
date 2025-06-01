@@ -54,9 +54,10 @@ body {
 
 /* Board */
 .main-board {
+    position: relative;
     margin-top: 3%;
     width: 92%;
-    max-height: 31rem;
+
     background: #dbeafe;
     border-radius: 10px;
     overflow: hidden;
@@ -66,9 +67,9 @@ body {
     justify-items: center;
     justify-content: center;
     gap: 15px 5px;
-    padding: 10px 6px 8px 6px;
-    flex-grow: 1;
-    grid-template-rows: auto auto auto auto;
+    padding: 16px 6px 16px 6px;
+    /*flex-grow: 1;*/
+    /*grid-template-rows: auto auto auto auto;*/
     grid-template-columns: 1fr 1fr;
 }
 
@@ -93,15 +94,15 @@ body {
     position: relative;
     width: 100%;
     
-    padding: 10px 0px 10px 0px;
     background: #dbeafe;
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     align-items: center;
     align-content: stretch;
     justify-content: start;
     gap: 10px;
+    padding: 10px 0px 10px 0px;
     flex-direction: column;
     flex-wrap: nowrap;
 }
@@ -112,7 +113,7 @@ body {
     
     padding: 10px 0px 10px 0px;
     background: #dbeafe;
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -196,7 +197,7 @@ body {
 .pill-timers-down-board {
     position: relative;
     width: 100%;
-    background: #d8d8d8FF;
+    background: #b4cceb;
     border-radius: 0px 0px 0px 0px;
     overflow: hidden;
     display: flex;
@@ -213,7 +214,7 @@ body {
 .pill-timers-up-board {
     position: relative;
     width: 100%;
-    background: #FFFFFFFF;
+    background: #fdfeff;
     border-radius: 0px 0px 0px 0px;
     overflow: hidden;
     display: flex;

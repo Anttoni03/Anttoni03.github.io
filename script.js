@@ -59,6 +59,10 @@ async function fetchSheetData() {
 
 function loadEvents(events) {
     if (events == "") return;
+
+    const showElement = document.getElementById("board-secundario-eventos");
+    showElement.classList.remove("invisible");
+    showElement.classList.add("visible");
     
     var eventsNames = events.split(". ");
     var total = ["evento1", "evento2", "evento3", "evento4", "evento5", "evento6", "evento7"];
@@ -84,19 +88,27 @@ function loadEvents(events) {
 function loadTasks(events) {
     if (events == "") return;
 
+    const showElement = document.getElementById("board-secundario-tareas");
+    showElement.classList.remove("invisible");
+    showElement.classList.add("visible");
+
     var tasksNames = events.split(". ");
     var total = ["tarea1", "tarea2", "tarea3", "tarea4", "tarea5", "tarea6", "tarea7"];
 
     for (let i = 0; i < tasksNames.length; i++) {
         const taskElement = document.getElementById(total[i]);
+        var completed = tasksNames[i].charAt(tasksNames[i].length - 1) === "*";
+        if (completed) {
+            tasksNames[i] = tasksNames[i].slice(0, -1); // Eliminar el asterisco al final
+        }
         var palabras = tasksNames[i].split(" ");
         var day = 0;
 
         if (palabras[palabras.length - 2] === "día") {
             day = palabras[palabras.length - 1];
-            taskElement.innerHTML = `[Día ${day}] ${palabras.slice(0, -2).join(" ")}`;
+            taskElement.innerHTML = `${completed ? "<s>" : ""}[Día ${day}] ${palabras.slice(0, -2).join(" ")}${completed ? "</s>" : ""}`;
         } else {
-            taskElement.innerHTML = tasksNames[i];
+            taskElement.innerHTML = (completed ? "<s>" : "") + tasksNames[i] + (completed ? "</s>" : "");
         }
 
         taskElement.classList.display = "block";
