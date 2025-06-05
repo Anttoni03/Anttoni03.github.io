@@ -14,7 +14,7 @@ async function fetchSheetData() {
 
         getWeekAdvancement();
         const advancement = getWeekAdvancement() / 7;
-        document.getElementById("indicador-text").innerHTML = getWeekDay() + " | " + (advancement*100).toFixed(2) + "%";
+        //document.getElementById("indicador-text").innerHTML = getWeekDay() + " | " + (advancement*100).toFixed(2) + "%";
         
         const i = getWeekIndex();
         document.getElementById("dormirX").innerHTML = "" + getDurationFromMinutes(data[i].dorPV, "h:m");
