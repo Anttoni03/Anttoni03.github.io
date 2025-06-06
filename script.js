@@ -168,8 +168,6 @@ function getWeekDay() {
     return dias[hoy.getDay()];
 }
 
-// Devuelve el avance de la semana actual (1-7)
-// 1 si es sábado y 7 si es viernes.
 function getWeekAdvancement() {
     const hoy = new Date();
     const diaSemana = hoy.getDay();
