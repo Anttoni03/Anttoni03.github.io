@@ -8,13 +8,18 @@ async function fetchSheetData() {
 
     try {
 
+        const weekNumber = getWeekAdvancement();
+        const advancement = ((new Date()).getHours() < 12 ? weekNumber - 1 : weekNumber) / 7;
+        document.getElementById("date-text").innerHTML = getWeekDay() + " | " + Math.round(advancement*100) + "%";
+        markDateBoard(weekNumber);
+
+
+
         //Cargar datos de la hoja de cálculo
         const response = await fetch(sheetURL);
         const data = await response.json();
 
-        getWeekAdvancement();
-        const advancement = getWeekAdvancement() / 7;
-        document.getElementById("indicador-text").innerHTML = getWeekDay() + " | " + (advancement*100).toFixed(2) + "%";
+
         
         const i = getWeekIndex();
         document.getElementById("dormirX").innerHTML = "" + getDurationFromMinutes(data[i].dorPV, "h:m");
@@ -27,7 +32,6 @@ async function fetchSheetData() {
         document.getElementById("socialX").innerHTML = "" + getDurationFromMinutes(data[i].socPV, "h:m");
         document.getElementById("transporteX").innerHTML = "" + getDurationFromMinutes(data[i].traPV, "h:m");
         document.getElementById("comerX").innerHTML = "" + getDurationFromMinutes(data[i].comPV, "h:m");
-        //document.getElementById("claseX").innerHTML = "" + getDurationFromMinutes(data[i].clasPV, "h m");
         document.getElementById("nadaX").innerHTML = "" + getDurationFromMinutes(data[i].nadPV, "h:m");
 
         document.getElementById("dormirR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].dorPV*advancement), "h:m");
@@ -40,7 +44,6 @@ async function fetchSheetData() {
         document.getElementById("socialR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].socPV*advancement), "h:m");
         document.getElementById("transporteR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].traPV*advancement), "h:m");
         document.getElementById("comerR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].comPV*advancement), "h:m");
-        //document.getElementById("claseX").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].clasPV*advancement), "h m");
         document.getElementById("nadaR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].nadPV*advancement), "h:m");
        
         loadEvents(data[i].COMENTARIOS);
@@ -171,8 +174,20 @@ function getWeekAdvancement() {
     return ((diaSemana + 1) % 7) + 1;
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
+async function markDateBoard(weekNum) {
+    const datesIds = ['date1', 'date2', 'date3', 'date4', 'date5', 'date6', 'date7'];
 
+    for (let i = 0; i < weekNum-1; i++) {
+        await sleep(80);
+        document.getElementById(datesIds[i]).classList.add("date-marked-passed");
+    }
+    await sleep(80);
+    document.getElementById(datesIds[weekNum-1]).classList.add("date-marked-current");
+}
 
 
 fetchSheetData();
