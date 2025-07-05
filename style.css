@@ -4,7 +4,7 @@
   --color-ejercicio: #acc34a;
   --color-clarinete: #f53639;
   --color-piano: #e91eb0;
-  --color-clases: #9c27b0;
+  --color-develop: #9c27b0;
   --color-productivo: #673ab7;
   --color-social: #036ef4;
   --color-leer: #50afed;
@@ -16,7 +16,7 @@
   --color-ejercicio2: #d5e496;
   --color-clarinete2: #f09193;
   --color-piano2: #ec89d0;
-  --color-clases2: #ae7ab8;
+  --color-develop2: #ae7ab8;
   --color-productivo2: #9981c4;
   --color-social2: #7db4f8;
   --color-leer2: #99ccee;
@@ -392,8 +392,8 @@ body {
 .piano {
     background: var(--color-piano);
 }
-.clases {
-    background: var(--color-clases);
+.develop {
+    background: var(--color-develop);
 }
 .productivo {
     background: var(--color-productivo);
@@ -426,8 +426,8 @@ body {
 .piano2 {
     background: var(--color-piano2);
 }
-.clases2 {
-    background: var(--color-clases2);
+.develop2 {
+    background: var(--color-develop2);
 }
 .productivo2 {
     background: var(--color-productivo2);

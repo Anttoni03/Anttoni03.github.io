@@ -33,6 +33,7 @@ async function fetchSheetData() {
         document.getElementById("transporteX").innerHTML = "" + getDurationFromMinutes(data[i].traPV, "h:m");
         document.getElementById("comerX").innerHTML = "" + getDurationFromMinutes(data[i].comPV, "h:m");
         document.getElementById("nadaX").innerHTML = "" + getDurationFromMinutes(data[i].nadPV, "h:m");
+        document.getElementById("devX").innerHTML = "" + getDurationFromMinutes(data[i].devPV, "h:m");
 
         document.getElementById("dormirR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].dorPV*advancement), "h:m");
         document.getElementById("productivoR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].proPV*advancement), "h:m");
@@ -45,6 +46,7 @@ async function fetchSheetData() {
         document.getElementById("transporteR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].traPV*advancement), "h:m");
         document.getElementById("comerR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].comPV*advancement), "h:m");
         document.getElementById("nadaR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].nadPV*advancement), "h:m");
+        document.getElementById("devR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].devPV*advancement), "h:m");
        
         loadEvents(data[i].COMENTARIOS);
         loadTasks(data[i].TAREAS);
@@ -182,10 +184,10 @@ async function markDateBoard(weekNum) {
     const datesIds = ['date1', 'date2', 'date3', 'date4', 'date5', 'date6', 'date7'];
 
     for (let i = 0; i < weekNum-1; i++) {
-        await sleep(80);
+        await sleep(100);
         document.getElementById(datesIds[i]).classList.add("date-marked-passed");
     }
-    await sleep(80);
+    await sleep(100);
     document.getElementById(datesIds[weekNum-1]).classList.add("date-marked-current");
 }
 
