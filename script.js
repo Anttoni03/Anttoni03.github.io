@@ -1,5 +1,6 @@
 const sheetId = "2PACX-1vQKJ2XLNedZMDujiSaVtSv40li98ULwmRk-QeEeHkb7tGtFp_eMfcl9j5eAEJhwpwtSWIL1fKneXgsx"; // Reemplaza con el ID real de tu hoja
 const sheetURL = `https://script.google.com/macros/s/AKfycbyXydFSnz1beZsMAHOsnvKFk_yahcoQkgzst6fbP5-THThXC2dlXUF4uAEUetQ-Wy2o/exec`;
+const startDate = new Date("2025-12-26");
 
 async function fetchSheetData() {
 
@@ -80,6 +81,7 @@ function loadEvents(events) {
         if (palabras[palabras.length - 2] === "día") {
             day = palabras[palabras.length - 1];
             eventElement.innerHTML = `[Día ${day}] ${palabras.slice(0, -2).join(" ")}`;
+            //eventElement.innerHTML = changeNumbers(eventElement.innerHTML);
         } else {
             eventElement.innerHTML = eventsNames[i];
         }
@@ -88,6 +90,21 @@ function loadEvents(events) {
         eventElement.classList.remove("invisible2");
         eventElement.classList.add("visible");
     }
+}
+
+//0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣
+function changeNumbers(text) {
+    text = text.replace('0', '0️⃣');
+    text = text.replace('1', '1️⃣');
+    text = text.replace('2', '2️⃣');
+    text = text.replace('3', '3️⃣');
+    text = text.replace('4', '4️⃣');
+    text = text.replace('5', '5️⃣');
+    text = text.replace('6', '6️⃣');
+    text = text.replace('7', '7️⃣');
+    text = text.replace('8', '8️⃣');
+    text = text.replace('9', '9️⃣');
+    return text;
 }
 
 function loadTasks(events) {
@@ -134,7 +151,7 @@ function displayContent(hide, show) {
 }
 
 function getWeekIndex() {
-    const initDay = new Date("2025-02-08");
+    const initDay = startDate;
     const today = new Date();
     const diff = today - initDay;
     const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24));
