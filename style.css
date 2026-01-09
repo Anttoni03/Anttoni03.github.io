@@ -10,6 +10,7 @@
   --color-leer: #50afed;
   --color-ocio: #009689;
   --color-transporte: #785248;
+  --color-forja: #cc6550;
 
   --color-dormir2: #fcd589;
   --color-comer2: #ffe895;
@@ -22,6 +23,7 @@
   --color-leer2: #99ccee;
   --color-ocio2: #70afaa;
   --color-transporte2: #a7918c;
+  --color-forja2: #dd7e6b;
 }
 
 html, body {
@@ -410,6 +412,9 @@ body {
 .transporte {
     background: var(--color-transporte);
 }
+.forja {
+    background: var(--color-forja);
+}
 
 .dormir2 {
     background: var(--color-dormir2);
@@ -443,5 +448,8 @@ body {
 }
 .transporte2 {
     background: var(--color-transporte2);
+}
+.forja2 {
+    background: var(--color-forja2);
 }
 
