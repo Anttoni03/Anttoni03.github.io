@@ -1,6 +1,6 @@
 const sheetId = "2PACX-1vQKJ2XLNedZMDujiSaVtSv40li98ULwmRk-QeEeHkb7tGtFp_eMfcl9j5eAEJhwpwtSWIL1fKneXgsx"; // Reemplaza con el ID real de tu hoja
-const sheetURL = `https://script.google.com/macros/s/AKfycbyXydFSnz1beZsMAHOsnvKFk_yahcoQkgzst6fbP5-THThXC2dlXUF4uAEUetQ-Wy2o/exec`;
-const startDate = new Date("2025-12-26");
+const sheetURL = `https://script.google.com/macros/s/AKfycbxK-mGGAQ3n2yJeYWvStda7tQ2cwiiYEx7O4nkDF1Oo3f6sToqpvflMxdPg8tzdRtpWbg/exec`;
+const startDate = new Date("2026-01-02");
 
 async function fetchSheetData() {
 
@@ -35,6 +35,7 @@ async function fetchSheetData() {
         document.getElementById("comerX").innerHTML = "" + getDurationFromMinutes(data[i].comPV, "h:m");
         document.getElementById("nadaX").innerHTML = "" + getDurationFromMinutes(data[i].nadPV, "h:m");
         document.getElementById("devX").innerHTML = "" + getDurationFromMinutes(data[i].devPV, "h:m");
+        document.getElementById("forjaX").innerHTML = "" + getDurationFromMinutes(data[i].forPV, "h:m");
 
         document.getElementById("dormirR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].dorPV*advancement), "h:m");
         document.getElementById("productivoR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].proPV*advancement), "h:m");
@@ -48,6 +49,7 @@ async function fetchSheetData() {
         document.getElementById("comerR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].comPV*advancement), "h:m");
         document.getElementById("nadaR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].nadPV*advancement), "h:m");
         document.getElementById("devR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].devPV*advancement), "h:m");
+        document.getElementById("forjaR").innerHTML = "" + getDurationFromMinutes(Math.round(data[i].forPV*advancement), "h:m");
        
         loadEvents(data[i].COMENTARIOS);
         loadTasks(data[i].TAREAS);
