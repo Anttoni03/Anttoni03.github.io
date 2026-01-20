@@ -1,6 +1,6 @@
 const sheetId = "2PACX-1vQKJ2XLNedZMDujiSaVtSv40li98ULwmRk-QeEeHkb7tGtFp_eMfcl9j5eAEJhwpwtSWIL1fKneXgsx"; // Reemplaza con el ID real de tu hoja
 const sheetURL = `https://script.google.com/macros/s/AKfycbxK-mGGAQ3n2yJeYWvStda7tQ2cwiiYEx7O4nkDF1Oo3f6sToqpvflMxdPg8tzdRtpWbg/exec`;
-const startDate = new Date("2026-01-02");
+const startDate = new Date("2025-12-26");
 
 async function fetchSheetData() {
 
